@@ -14,7 +14,7 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: echo
         with:
-          author: ${{github.event.comment.user.login}}
-          comment: ${{github.event.comment.body}}
+          author: ${{ github.event.comment.user.login }}
+          comment: ${{ github.event.comment.body }}
       - name: Get the output
-        run: echo "${{ steps.echo.outputs.who }} said ${{ steps.echo.outputs.what }} at ${{ steps.echo.outputs.when }}"
+        run: echo '${{ steps.echo.outputs.who }} said "${{ steps.echo.outputs.what }}" at ${{ steps.echo.outputs.when }}.'
