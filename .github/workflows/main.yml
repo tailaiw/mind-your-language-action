@@ -1,5 +1,7 @@
-on: [push,watch]
-
+on:
+  issue_comment
+    types:
+      - created
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
