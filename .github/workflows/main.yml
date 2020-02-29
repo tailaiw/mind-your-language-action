@@ -16,12 +16,12 @@ jobs:
         with:
           author: ${{ github.event.comment.user.login }}
           comment: ${{ github.event.comment.body }}
-      - name: Positive feed back
-        run: echo '${{ github.event.comment.user.login }} said something good.'
-        if: ${{ steps.sentiment.outputs.sentiment }} == 'pos'
-      - name: Negative feed back
-        run: echo '${{ github.event.comment.user.login }} said something bad.'
-        if: ${{ steps.sentiment.outputs.sentiment }} == 'neg'
-      - name: Neutral feed back
-        run: echo '${{ github.event.comment.user.login }} said something.'
-        if: ${{ steps.sentiment.outputs.sentiment }} == 'neu'
+      - if: ${{ steps.sentiment.outputs.sentiment }} == 'pos'
+        name: Positive feed back
+        run: echo '${{ github.event.comment.user.login }} said something good - ${{ steps.sentiment.outputs.sentiment }}.'
+      - if: ${{ steps.sentiment.outputs.sentiment }} == 'neg'
+        name: Negative feed back
+        run: echo '${{ github.event.comment.user.login }} said something bad - ${{ steps.sentiment.outputs.sentiment }}.'
+      - if: ${{ steps.sentiment.outputs.sentiment }} == 'neu'
+        name: Neutral feed back
+        run: echo '${{ github.event.comment.user.login }} said something - ${{ steps.sentiment.outputs.sentiment }}.'
