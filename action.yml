@@ -1,6 +1,6 @@
 # action.yml
 name: 'Echo'
-description: 'Echo someone's comment'
+description: 'Echo comment from someone'
 inputs:
   author:
     description: 'author of the comment'
