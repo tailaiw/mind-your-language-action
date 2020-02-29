@@ -1,5 +1,5 @@
 FROM python:3
 
-COPY sentiment-analysis/sentiment.py /
+COPY sentiment-analysis/sentiment.py /sentiment.py
 
-ENTRYPOINT ["sentiment.py"]
+ENTRYPOINT ["python3", "/sentiment.py"]
