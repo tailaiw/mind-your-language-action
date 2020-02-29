@@ -1,6 +1,4 @@
 #!/bin/sh -l
 
-echo ::set-output name=who::$1
-time=$(date)
-echo ::set-output name=when::$time
-echo ::set-output name=what::$2
+sentiment=$(python3 /sentiment.py $1 $2)
+echo ::set-output name=sentiment::$sentiment
