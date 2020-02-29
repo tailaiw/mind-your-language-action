@@ -11,12 +11,8 @@ inputs:
     required: true
     default: 'something'
 outputs:
-  who:
-    description: 'who'
-  when:
-    description: 'when'
-  what:
-    description: 'what'
+  sentiment:
+    description: 'sentiment'
 runs:
   using: 'docker'
   image: 'Dockerfile'
