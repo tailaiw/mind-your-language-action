@@ -1,16 +1,25 @@
 # action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Echo'
+description: 'Echo someone's comment'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  author:
+    description: 'author of the comment'
     required: true
-    default: 'World'
+    default: 'someone'
+  comment:
+    description: 'body of the comment'
+    required: true
+    default: 'something'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  who:
+    description: 'who'
+  when:
+    description: 'when'
+  what:
+    description: 'what'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.author }}
+    - ${{ inputs.comment }}

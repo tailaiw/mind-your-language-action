@@ -1,5 +1,6 @@
 #!/bin/sh -l
 
-echo "Hello $1"
+echo ::set-output name=who::$1
 time=$(date)
-echo ::set-output name=time::$time
+echo ::set-output name=when::$time
+echo ::set-output name=what::$2
