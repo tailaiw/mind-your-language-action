@@ -6,11 +6,11 @@ def analyze_sentiment(author, comment):
     Analyze the sentiment
     """
     if "bad" in comment:
-        return -1
+        return "neg"
     elif "good" in comment:
-        return 1
+        return "pos"
     else:
-        return 0
+        return "neu"
 
 
 if __name__ == "__main__":

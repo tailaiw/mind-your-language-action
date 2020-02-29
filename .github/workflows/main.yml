@@ -18,10 +18,10 @@ jobs:
           comment: ${{ github.event.comment.body }}
       - name: Positive feed back
         run: echo '${{ github.event.comment.user.login }} said something good.'
-        if: ${{ steps.sentiment.outputs.sentiment }} == '1'
+        if: ${{ steps.sentiment.outputs.sentiment }} == 'pos'
       - name: Negative feed back
         run: echo '${{ github.event.comment.user.login }} said something bad.'
-        if: ${{ steps.sentiment.outputs.sentiment }} == '-1'
+        if: ${{ steps.sentiment.outputs.sentiment }} == 'neg'
       - name: Neutral feed back
         run: echo '${{ github.event.comment.user.login }} said something.'
-        if: ${{ steps.sentiment.outputs.sentiment }} == '0'
+        if: ${{ steps.sentiment.outputs.sentiment }} == 'neu'
