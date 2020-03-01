@@ -6,6 +6,7 @@ if [ "$GITHUB_EVENT_NAME" = "created" ]; then
 else
     comment=$(cat $GITHUB_EVENT_PATH | jq -r .changes.body)
 fi
+echo $comment
 
 issue_comments_url=$(cat $GITHUB_EVENT_PATH | jq -r .issue.comments_url)
 
