@@ -9,7 +9,7 @@ profanity=$(python3 /check.py "$comment")
 if [ "$profanity" = "1" ]; then
     echo "$author said something bad"
 
-    curl --include \
+    curl --include --verbose --fail \
     -H "Accept: application/json" \
     -H "Content-Type:application/json" \
     -H "Authorization: token ${GITHUB_TOKEN}" \
