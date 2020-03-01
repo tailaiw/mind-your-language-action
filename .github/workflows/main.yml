@@ -7,6 +7,14 @@ on:
     types:
       - created
       - edited
+  pull_request:
+    types:
+      - opened
+      - edited
+  pull_request_review_comment:
+    types:
+      - created
+      - edited
 jobs:
   echo_issue_comment:
     runs-on: ubuntu-latest

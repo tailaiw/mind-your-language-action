@@ -10,6 +10,16 @@ if [ "$GITHUB_EVENT_NAME" = "issues" ]; then
     comment=$(cat $GITHUB_EVENT_PATH | jq -r .issue.body)
 fi
 
+if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+    author=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.user.login)
+    comment=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.body)
+fi
+
+if [ "$GITHUB_EVENT_NAME" = "pull_request_review_comment" ]; then
+    author=$(cat $GITHUB_EVENT_PATH | jq -r .comment.user.login)
+    comment=$(cat $GITHUB_EVENT_PATH | jq -r .comment.body)
+fi
+
 echo $comment
 
 issue_comments_url=$(cat $GITHUB_EVENT_PATH | jq -r .issue.comments_url)
