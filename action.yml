@@ -1,6 +1,6 @@
 # action.yml
-name: 'Profanity check'
-description: 'Check profanity'
+name: 'Mind your language'
+description: 'Detect offensive language in comments and take reaction'
 branding:
   icon: 'mic-off'
   color: 'red'
