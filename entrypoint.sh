@@ -3,10 +3,12 @@
 if [ "$GITHUB_EVENT_NAME" = "issue_comment" ]; then
     author=$(cat $GITHUB_EVENT_PATH | jq -r .comment.user.login)
     comment=$(cat $GITHUB_EVENT_PATH | jq -r .comment.body)
+fi
 
 if [ "$GITHUB_EVENT_NAME" = "issues" ]; then
     author=$(cat $GITHUB_EVENT_PATH | jq -r .issue.user.login)
     comment=$(cat $GITHUB_EVENT_PATH | jq -r .issue.body)
+fi
 
 echo $comment
 
