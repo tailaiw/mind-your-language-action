@@ -29,7 +29,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Profanity check step
-        uses: tailaiw/mind-your-language-action@v1.0.0
+        uses: tailaiw/mind-your-language-action@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```

@@ -1,6 +1,9 @@
 # action.yml
 name: 'Profanity check'
 description: 'Check profanity'
+branding:
+  icon: 'mic-off'
+  color: 'red'
 runs:
   using: 'docker'
   image: 'Dockerfile'
