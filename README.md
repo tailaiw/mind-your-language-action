@@ -29,7 +29,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Profanity check step
-        uses: tailaiw/mind-your-language-action@master
+        uses: tailaiw/mind-your-language-action@v1.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -46,6 +46,6 @@ I am currently using [profanity-check](https://github.com/vzhou842/profanity-che
 
 The reaction right now is an auto-reply by github-actions bot that mentions the sender of offensive comment.
 
-### Contributing
+## Contributing
 
 I'm a new developer of github action, so suggestion and help are more than welcome. Of course, "Mind your language" :smile:
