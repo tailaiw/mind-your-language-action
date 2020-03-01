@@ -3,7 +3,7 @@
 author=$(cat $GITHUB_EVENT_PATH | jq -r .comment.user.login)
 comment=$(cat $GITHUB_EVENT_PATH | jq -r .comment.body)
 
-profanity=$(python3 /check.py $comment)
+profanity=$(python3 /check.py "$comment")
 
 if [ "$profanity" = "1" ]; then
     echo "$author said $comment"
