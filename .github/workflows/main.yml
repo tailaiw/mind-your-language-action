@@ -7,10 +7,10 @@ on:
     types:
       - created
       - edited
-  # pull_request:
-  #   types:
-  #     - opened
-  #     - edited
+  pull_request:
+    types:
+      - opened
+      - edited
   pull_request_review_comment:
     types:
       - created

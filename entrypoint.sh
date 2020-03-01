@@ -12,11 +12,11 @@ if [ "$GITHUB_EVENT_NAME" = "issues" ]; then
     comments_url=$(cat $GITHUB_EVENT_PATH | jq -r .issue.comments_url)
 fi
 
-# if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
-#     author=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.user.login)
-#     comment=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.body)
-#     comments_url=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.review_comments_url)
-# fi
+if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+    author=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.user.login)
+    comment=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.body)
+    comments_url=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.review_comment_url)"/replies"
+fi
 
 if [ "$GITHUB_EVENT_NAME" = "pull_request_review_comment" ]; then
     author=$(cat $GITHUB_EVENT_PATH | jq -r .comment.user.login)
