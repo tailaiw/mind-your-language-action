@@ -1,21 +1,35 @@
-# Hello world docker action
+# Mind your language action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
-
-## Inputs
-
-### `who-to-greet`
-
-**Required** The name of the person to greet. Default `"World"`.
-
-## Outputs
-
-### `time`
-
-The time we greeted you.
+This action monitor comments to issues and pull requests, and remind the sender if offensive language is found.
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@v1
-with:
-  who-to-greet: 'Mona the Octocat'
+Create the following workflow file `mind-your-language.yml` in the `.github/workflows/` directory of your repository:
+
+```yml
+name: Mind your language
+on:
+  issues:
+    types:
+      - opened
+      - edited
+  issue_comment:
+    types:
+      - created
+      - edited
+  pull_request_review_comment:
+    types:
+      - created
+      - edited
+jobs:
+  echo_issue_comment:
+    runs-on: ubuntu-latest
+    name: profanity check
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Profanity check step
+        uses: tailaiw/mind-your-language-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```

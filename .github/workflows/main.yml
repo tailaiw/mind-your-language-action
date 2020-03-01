@@ -21,7 +21,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Profanity check step
         uses: ./ # Uses an action in the root directory
-        id: check
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

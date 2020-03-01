@@ -18,9 +18,9 @@ if [ "$GITHUB_EVENT_NAME" = "pull_request_review_comment" ]; then
     comments_url=$(cat $GITHUB_EVENT_PATH | jq -r .comment.url)"/replies"
 fi
 
-echo $author
-echo $comment
-echo $comments_url
+# echo $author
+# echo $comment
+# echo $comments_url
 
 profanity=$(python3 /check.py "$comment")
 
