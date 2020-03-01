@@ -1,7 +1,6 @@
 "React to profanity"
 
 import sys
-import json
 
 
 def reply(author):
@@ -14,10 +13,6 @@ def reply(author):
 
 if __name__ == "__main__":
 
-    payload_json_path = sys.argv[1]
-    with open(payload_json_path, "r") as f:
-        payload = json.load(f)
-
-    author = payload["comment"]["user"]["login"]
+    author = sys.argv[1]
 
     print(reply(author))

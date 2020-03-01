@@ -1,7 +1,6 @@
 "Check profanity"
 
 import sys
-import json
 
 from profanity_check import predict, predict_prob
 
@@ -21,11 +20,7 @@ def check_profanity(comment):
 
 if __name__ == "__main__":
 
-    payload_json_path = sys.argv[1]
-    with open(payload_json_path, "r") as f:
-        payload = json.load(f)
-
-    comment = payload["comment"]["body"]
+    comment = sys.argv[1]
 
     print(check_profanity(comment))
 
