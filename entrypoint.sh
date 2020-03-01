@@ -25,6 +25,7 @@ if [ "$GITHUB_EVENT_NAME" = "pull_request_review_comment" ]; then
 fi
 
 echo $comment
+echo $comments_url
 
 issue_comments_url=$(cat $GITHUB_EVENT_PATH | jq -r .issue.comments_url)
 
