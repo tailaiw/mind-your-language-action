@@ -1,4 +1,4 @@
 #!/bin/sh -l
 
-sentiment=$(python3 /sentiment.py $1 $2)
-echo ::set-output name=sentiment::$sentiment
+profanity=$(python3 /main.py $1)
+echo ::set-output name=profanity::$profanity

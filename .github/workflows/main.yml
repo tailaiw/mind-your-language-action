@@ -5,23 +5,17 @@ on:
 jobs:
   echo_issue_comment:
     runs-on: ubuntu-latest
-    name: Sentiment analysis
+    name: profanity check
     steps:
       # To use this repository's private action, you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Sentiment analysis step
+      - name: Profanity check step
         uses: ./ # Uses an action in the root directory
-        id: sentiment
+        id: check
         with:
-          author: ${{ github.event.comment.user.login }}
           comment: ${{ github.event.comment.body }}
-      - name: Positive feed back
-        if: steps.sentiment.outputs.sentiment == 1
-        run: echo '${{ github.event.comment.user.login }} said something good.'
-      - name: Negative feed back
-        if: steps.sentiment.outputs.sentiment == -1
-        run: echo '${{ github.event.comment.user.login }} said something bad.'
-      - name: Neutral feed back
-        if: steps.sentiment.outputs.sentiment == 0
-        run: echo '${{ github.event.comment.user.login }} said something.'
+      - name: React step
+        if: steps.check.outputs.profanity == 1
+        run: echo '@${{ github.event.comment.user.login }} said something bad.'
+
