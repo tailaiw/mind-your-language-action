@@ -1,11 +1,8 @@
 #!/bin/sh -l
 
 author=$(cat $GITHUB_EVENT_PATH | jq -r .comment.user.login)
-if [ "$GITHUB_EVENT_NAME" = "created" ]; then
-    comment=$(cat $GITHUB_EVENT_PATH | jq -r .comment.body)
-else
-    comment=$(cat $GITHUB_EVENT_PATH | jq -r .changes.body)
-fi
+comment=$(cat $GITHUB_EVENT_PATH | jq -r .comment.body)
+
 echo $comment
 
 issue_comments_url=$(cat $GITHUB_EVENT_PATH | jq -r .issue.comments_url)
