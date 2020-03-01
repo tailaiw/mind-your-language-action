@@ -1,3 +1,5 @@
+"Check profanity"
+
 import sys
 import json
 
