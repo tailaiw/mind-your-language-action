@@ -2,6 +2,7 @@ on:
   issue_comment:
     types:
       - created
+      - edited
 jobs:
   echo_issue_comment:
     runs-on: ubuntu-latest
