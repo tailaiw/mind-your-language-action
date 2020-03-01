@@ -1,3 +1,4 @@
+name: Mind your language
 on:
   issues:
     types:
@@ -16,11 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     name: profanity check
     steps:
-      # To use this repository's private action, you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
       - name: Profanity check step
-        uses: ./ # Uses an action in the root directory
+        uses: tailaiw/mind-your-language-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
