@@ -3,21 +3,25 @@
 if [ "$GITHUB_EVENT_NAME" = "issue_comment" ]; then
     author=$(cat $GITHUB_EVENT_PATH | jq -r .comment.user.login)
     comment=$(cat $GITHUB_EVENT_PATH | jq -r .comment.body)
+    comments_url=$(cat $GITHUB_EVENT_PATH | jq -r .issue.comments_url)
 fi
 
 if [ "$GITHUB_EVENT_NAME" = "issues" ]; then
     author=$(cat $GITHUB_EVENT_PATH | jq -r .issue.user.login)
-    comment=$(cat $GITHUB_EVENT_PATH | jq -r .issue.body)
+    comment=$(cat $GITHUB_EVENT_PATH | jq -r .issue.body)]
+    comments_url=$(cat $GITHUB_EVENT_PATH | jq -r .issue.comments_url)
 fi
 
 if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
     author=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.user.login)
     comment=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.body)
+    comments_url=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.review_comments_url)
 fi
 
 if [ "$GITHUB_EVENT_NAME" = "pull_request_review_comment" ]; then
     author=$(cat $GITHUB_EVENT_PATH | jq -r .comment.user.login)
     comment=$(cat $GITHUB_EVENT_PATH | jq -r .comment.body)
+    comments_url=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.review_comments_url)
 fi
 
 echo $comment
@@ -34,7 +38,7 @@ if [ "$profanity" = "1" ]; then
     -H "Content-Type:application/json" \
     -H "Authorization: token ${GITHUB_TOKEN}" \
     --request POST --data '{"body": "@'$author' Please mind your language."}' \
-    $issue_comments_url
+    $comments_url
 else
     echo "$author said something good"
 fi
