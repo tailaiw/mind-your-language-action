@@ -9,7 +9,7 @@ def reply(author):
     Return response to the offensive comment
     """
 
-    return "@{} please mind your language."
+    return "@{} please mind your language.".format(author)
 
 
 if __name__ == "__main__":
