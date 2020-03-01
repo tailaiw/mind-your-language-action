@@ -21,7 +21,7 @@ fi
 if [ "$GITHUB_EVENT_NAME" = "pull_request_review_comment" ]; then
     author=$(cat $GITHUB_EVENT_PATH | jq -r .comment.user.login)
     comment=$(cat $GITHUB_EVENT_PATH | jq -r .comment.body)
-    comments_url=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.review_comments_url)
+    comments_url=$(cat $GITHUB_EVENT_PATH | jq -r .comment.url)"/replies"
 fi
 
 echo $comment
