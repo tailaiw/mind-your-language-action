@@ -13,7 +13,7 @@ if [ "$profanity" = "1" ]; then
     -H "Accept: application/json" \
     -H "Content-Type:application/json" \
     -H "Authorization: token ${GITHUB_TOKEN}" \
-    --request POST --data "{body: "$reply"}" \
+    --request POST --data "{body: '$reply'}" \
     $issue_comments_url
 else
     echo "$author said something good"
