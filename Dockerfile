@@ -2,7 +2,8 @@ FROM python:3.6
 
 USER root
 
-RUN apt install curl jq
+RUN apt-get update
+RUN apt-get install -y curl jq
 
 COPY profanity-check/requirements.txt /requirements.txt
 RUN pip3 install -r /requirements.txt
