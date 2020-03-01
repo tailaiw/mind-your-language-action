@@ -13,7 +13,7 @@ jobs:
       - name: Profanity check step
         uses: ./ # Uses an action in the root directory
         id: check
-        with:
-          author: ${{ github.event.comment.user.login }}
-          comment: ${{ github.event.comment.body }}
+        # with:
+        #   author: ${{ github.event.comment.user.login }}
+        #   comment: ${{ github.event.comment.body }}
 

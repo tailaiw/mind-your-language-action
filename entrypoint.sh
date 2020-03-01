@@ -1,9 +1,7 @@
 #!/bin/sh -l
 
-author=$1
-comment=$2
 
-profanity=$(python3 /main.py $2)
+profanity=$(python3 /main.py $GITHUB_EVENT_PATH)
 
 if [ "$profanity" = "1" ]; then
     echo "@$author said something bad"

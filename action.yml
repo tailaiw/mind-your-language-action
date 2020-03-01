@@ -1,21 +1,21 @@
 # action.yml
 name: 'Profanity check'
 description: 'Check profanity'
-inputs:
-  author:
-    description: 'author of the comment'
-    required: true
-    default: 'someone'
-  comment:
-    description: 'body of the comment'
-    required: true
-    default: 'something'
-outputs:
-  profanity:
-    description: 'profanity'
+# inputs:
+#   author:
+#     description: 'author of the comment'
+#     required: true
+#     default: 'someone'
+#   comment:
+#     description: 'body of the comment'
+#     required: true
+#     default: 'something'
+# outputs:
+#   profanity:
+#     description: 'profanity'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.author }}
-    - ${{ inputs.comment }}
+  # args:
+  #   - ${{ inputs.author }}
+  #   - ${{ inputs.comment }}
