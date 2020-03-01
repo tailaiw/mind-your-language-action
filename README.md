@@ -33,3 +33,19 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+## Workflow
+
+Whenever a comment to an issue or pull request is created, the work flow will perform [profanity check](#profanity-check) against the comment text and take [reaction](#reaction) if offensive language is found.
+
+### Profanity Check
+
+I am currently using [profanity-check](https://github.com/vzhou842/profanity-check), a Python package of profanity detection based on machine learning, to determine whether a comment is offensive or not. It is not super powerful but is sensitive to obvious offensive language. I hope I may use some cutting-edge NLP algorithms to get better performance. I will create a separate repo to pursue better alternatives soon. If you are interested in it, stay tuned.
+
+### Reaction
+
+The reaction right now is an auto-reply by github-actions bot that mentions the sender of offensive comment.
+
+### Contributing
+
+I'm a new developer of github action, so suggestion and help are more than welcome. Of course, "Mind your language" :smile:
