@@ -8,12 +8,12 @@ profanity=$(python3 /check.py "$comment")
 
 if [ "$profanity" = "1" ]; then
     echo "$author said something bad"
-    reply=$(python3 /react.py $author)
+
     curl --include \
     -H "Accept: application/json" \
     -H "Content-Type:application/json" \
     -H "Authorization: token ${GITHUB_TOKEN}" \
-    --request POST --data '{"body": $reply}' \
+    --request POST --data '{"body": "@'$author' Please mind your language."}' \
     $issue_comments_url
 else
     echo "$author said something good"

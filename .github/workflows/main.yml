@@ -15,7 +15,4 @@ jobs:
         id: check
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # with:
-        #   author: ${{ github.event.comment.user.login }}
-        #   comment: ${{ github.event.comment.body }}
 
