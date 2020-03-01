@@ -18,10 +18,7 @@ def check_profanity(comment):
 
 if __name__ == "__main__":
 
-    if len(sys.argv) != 2:
-        raise RuntimeError("Wrong number of input.")
-
-    comment = sys.argv[1]
+    comment = " ".join(sys.argv[1:])
 
     print(check_profanity(comment))
 
