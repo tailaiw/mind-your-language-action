@@ -2,6 +2,10 @@
 name: 'Profanity check'
 description: 'Check profanity'
 inputs:
+  author:
+    description: 'author of the comment'
+    required: true
+    default: 'someone'
   comment:
     description: 'body of the comment'
     required: true
@@ -13,4 +17,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ inputs.author }}
     - ${{ inputs.comment }}

@@ -14,8 +14,6 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: check
         with:
+          author: ${{ github.event.comment.user.login }}
           comment: ${{ github.event.comment.body }}
-      - name: React step
-        if: steps.check.outputs.profanity == 1
-        run: echo '@${{ github.event.comment.user.login }} said something bad.'
 
